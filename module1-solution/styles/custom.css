@@ -1,0 +1,14 @@
+
+.success div.message {
+    color: green;
+}
+.failed div.message {
+    color: red;
+}
+
+.failed input {
+    border: 1px solid red;
+}
+.success input {
+    border: 1px solid green;
+}
