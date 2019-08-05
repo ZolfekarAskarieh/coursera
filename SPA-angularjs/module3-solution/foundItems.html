@@ -1,0 +1,9 @@
+<p ng-if="items.length >= 0">Total Items {{items.length}}</p>
+<div class="found-items">
+    <div class="found-item card" ng-repeat="item in items">
+        <p class="text-center">{{item.name}} ({{item.short_name}})</p>
+        <p class="text-center">{{item.description}}</p>
+        <button class="btn btn-danger" ng-click="onRemove({idx: $index})">Don't want this one!</button>
+    </div>
+</div>
+<p ng-if="items.length == 0">Nothing found</p>
