@@ -51,11 +51,6 @@ input[type="text"] {
   }
 }
 
-found-items:before {
-  content:'';
-  display: block;
-  clear: both;
-}
 .found-items {
   display: flex;
   flex-wrap: wrap;
@@ -73,4 +68,13 @@ found-items:before {
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+loader {
+  display: block;
+  text-align: center
+}
+
+.clear {
+  clear: both
 }

@@ -5,6 +5,7 @@
     .controller('NarrowItDownController', NarrowItDownController)
     .service('MenuSearchService', MenuSearchService)
     .directive('foundItems', foundItems)
+    .directive('loader', loader)
     .constant('BASE_API_URI', 'https://davids-restaurant.herokuapp.com');
 
 
@@ -12,10 +13,13 @@
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var searchCtrl = this;
+        searchCtrl.loading = false;
         searchCtrl.query = "";
         searchCtrl.search = function() {
+            searchCtrl.loading = true;
             MenuSearchService.getMatchedMenuItems(searchCtrl.query).then(function(data){
                 searchCtrl.found = data;
+                searchCtrl.loading = false;
             })
         }
         searchCtrl.onRemove = function(idx) {
@@ -58,4 +62,17 @@
 
         return dod;
     }
+
+    function loader() {
+        var dod = {
+            templateUrl: 'loader.html',
+            scope: {
+                loading: "<",
+            }
+        }
+
+        return dod;
+    }
+
+    
 })()
